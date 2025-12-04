@@ -23,6 +23,19 @@ Route::get('/praca', function(){
 
 /* 
 
+Rotas View
+
+Route::view('/contato', 'contato', ['nome'=>'Cu sujo']);
+
+
+*/
+
+
+
+
+
+/* 
+
 -=-=-=-=-=-=--=-= Redirecionamento -=-=-=-=-=-=-=-=
 
  Route::redirect('/daqui', '/praca', 301) ;
