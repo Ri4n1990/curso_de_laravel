@@ -2,8 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 
-require __DIR__ . '/clientes.php';
-
-Route::get('/', function () {
-    return view('contato');
+Route::get('/', function(){
+    return view('welcome') ;
 });
+
+
+
+// ---------------------------
+// VÁRIOS VERBOS NA MESMA ROTA
+// ---------------------------
+
+// Route::match(['get', 'post'], '/', function(){
+//     return 'Algo';
+
+// });
+
+
+// Route::any('/', function(){
+//     return 'coisas' ;
+
+// });
