@@ -1,10 +1,44 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Pest\Support\View;
 
 Route::get('/', function(){
-    return view('welcome') ;
+    return 'Olá' ;
 });
+
+
+Route::get('/praca', function(){
+    return 'oi';
+});
+
+
+
+
+
+
+
+
+
+
+/* 
+
+-=-=-=-=-=-=--=-= Redirecionamento -=-=-=-=-=-=-=-=
+
+ Route::redirect('/daqui', '/praca', 301) ;
+
+ Route::permanentRedirect('/daqui', 'praca');
+
+*/
+
+
+
+
+
+
+
+
+
 
 
 
