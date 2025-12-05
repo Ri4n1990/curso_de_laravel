@@ -8,9 +8,11 @@ Route::get('/', function(){
 });
 
 
-Route::get('/praca', function(){
-    return 'oi';
-});
+
+
+
+
+
 
 
 
@@ -23,7 +25,32 @@ Route::get('/praca', function(){
 
 /* 
 
-Rotas View
+-=-=-=-=-=-=-=-=-= Parâmetros de rotas / Restrições de regex -=-=-=-=-=-=-=-=-
+
+Route::get('/params/{id}/{nome}', function(int $id, string $nome){
+    return 'Este é seu id: '. $id . "<br>e nome: " . $nome ;
+    
+})->where('nome', '[A-Za-z]+');
+
+
+Route::get('/produtos/{id}', function(int $id){
+
+    return 'Esse é o id do produto: ' . $id ;
+
+});
+
+
+*/
+
+
+
+
+
+
+
+/* 
+
+-=-=-=-=--=-=-=-=-= Rotas View -=-=-=--==--=-=-=-=-==-=---=-=
 
 Route::view('/contato', 'contato', ['nome'=>'Cu sujo']);
 
