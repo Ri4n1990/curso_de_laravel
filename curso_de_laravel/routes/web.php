@@ -5,7 +5,54 @@ use Pest\Support\View;
 
 Route::get('/', function(){
     return 'Olá' ;
-});
+})->name('principal');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+-=-=-=-=- Nomeação de rotas / redirecionamentos / geração de url -=-=-=-=-=-=-=
+
+
+Route::get('/clientes', function(){
+
+    // $url = route('cliente');
+    // echo $url . "<br>";
+
+    // return redirect()->route('principal');
+    return to_route('principal');
+
+})->name('cliente');
+
+
+Route::get('cadastro/{id}' , function(int $id){
+
+    $url = route('cad', ['id' => 30]);
+    echo $url ;
+
+    return $id;
+
+
+})->name('cad');
+
+
+
+*/
 
 
 
