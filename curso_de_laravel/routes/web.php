@@ -1,11 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Verificacao;
+use App\Http\Middleware\Controle;
+
 use Pest\Support\View;
 
 Route::get('/', function(){
-    return 'Olá' ;
+    return 'Olá, Rota principal' ;
 })->name('principal');
+
+
+Route::get('/controle', function(){
+    return 'olá' ;
+})->middleware(Verificacao::class);
+
+
+Route::get('/teste', function(){
+    return 'Passei pelo midleware';
+});
 
 
 
