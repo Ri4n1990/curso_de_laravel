@@ -66,3 +66,12 @@ $('#dados').click(()=>{
                 }
             })
         })
+
+
+
+$('#req').click(()=>{
+    $.ajax({
+        method : "POST",
+        url: '/check'
+    })
+})

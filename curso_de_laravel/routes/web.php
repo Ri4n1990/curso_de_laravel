@@ -10,9 +10,13 @@ use App\Http\Controllers\Usuarios;
 use App\Http\Controllers\Admins;
 use App\Http\Controllers\Prat;
 use App\Http\Middleware\Autenticacao;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Check_dados;
 use App\Models\User;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 use Pest\Support\View;
 
@@ -84,8 +88,57 @@ Route::post('/cadastro',[Prat::class ,'cadastro'])->name('cadastro');
 
 Route::view('/exclusivo','pg_exclusiva')->name('pg_exclusiva')->middleware(Autenticacao::class);
 
+Route::get('/logout' , function(){
+    Auth::logout();
+});
 Route::view('/registrar', 'registro');
 
+Route::view('/cliente_valores', 'dados_cliente')->name('cliente_valores')->middleware(Check_dados::class);
+
+Route::post('/check_dados',[Usuarios::class, 'check_dados'])->name('check_dados');
+
+Route::get('/dados', function(){
+
+    
+    // $data = DB::select('select * from carros');
+
+    // foreach($data as $carro){
+    //     dd($data);
+    // }
+
+
+
+    // try{
+
+    //     DB::insert('insert into carros values (:id,:nome,:fabricante,:ano,:cor,:preco_unitario,:qtd_estoque)',['id' => '12', 'nome' => 'voyage', 'fabricante' => 'volkswagen', 'ano' => 2010, 'cor' => 'vermelho', 'preco_unitario' => 2000, 'qtd_estoque' => 20]);
+
+    //     Log::debug('entrou lá ele');
+
+    // }catch(QueryException $err){
+        
+    //     dd($err);
+    // }
+
+    // $da = DB::unprepared('select * from carros where id_linha = 3');
+
+    // dd($da);
+
+    
+    
+
+    
+
+});
+
+
+
+Route::get('/paginar',[Usuarios::class, 'paginar']);
+
+
+
+// Route::get('/profile', function(){
+    
+// })->Middleware('auth.basic');
 
 
 

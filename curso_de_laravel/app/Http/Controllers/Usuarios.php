@@ -6,8 +6,9 @@ namespace App\Http\Controllers ;
 use Exception;
 use Illuminate\Http\Request ;
 use Illuminate\Support\Facades\Log ;
-
+use Symfony\Component\HttpFoundation\Response;
 use function Pest\Laravel\session;
+use Illuminate\Support\Facades\DB;
 
 class Usuarios extends Controller{
 
@@ -69,6 +70,32 @@ class Usuarios extends Controller{
         $produtos = ['Maça','Pera', 'Banana','Bergamota','Ameixa','Pêssego','Uva','Pitaya'];
         
         return view('produtos',['produtos' => $produtos]);
+    }
+
+    public function check_dados(Request $request){
+
+       $request->validate([
+            'nome' => ['required', 'regex:/pato/i']
+       ]);
+
+        Log::debug('Deu bom aqui');
+        return  redirect()->route('pg_exclusiva');
+
+        
+
+        
+
+        
+
+
+       }
+
+    public function paginar(){
+        $dados = DB::table('carros')->simplePaginate(5);
+        return view('paginacao', ['registros' => $dados] );
+
+
+        
     }
 
 

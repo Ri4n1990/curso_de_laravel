@@ -9,19 +9,7 @@
 
     <script src = '/js/app.js' defer></script>
     <script src = '/js/outro.js' defer></script>
-    
 
-
-    
-
-    
-
-    
-
-    
-
-     
- 
     
     <title>Home</title>
 </head>
@@ -43,7 +31,12 @@
 
     
    
+    <script>
 
+
+
+
+    </script>
 
 
    
